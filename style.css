@@ -317,6 +317,8 @@ body{
         font-size:2.5rem;
     }
 
+    
+
     .attendance{
 
         flex-direction:column;
@@ -342,6 +344,26 @@ body{
         flex-direction:column;
 
         padding:60px 20px;
+
+    }
+
+    .invitation-section.show .polaroid{
+
+        animation:none;
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+    .invitation-section.show .invitation-card{
+
+        animation:none;
+
+        opacity:1;
+
+        transform:none;
 
     }
 
