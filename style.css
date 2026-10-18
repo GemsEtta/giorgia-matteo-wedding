@@ -321,13 +321,25 @@ body{
 
     .attendance{
 
-        flex-direction:column;
+    display:flex;
 
-        align-items:flex-start;
+    flex-direction:row;
 
-        gap:15px;
+    justify-content:center;
 
-    }
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.attendance label{
+
+    white-space:nowrap;
+
+    font-size:0.95rem;
+
+}
 
     .timeline{
         flex-direction:column;
