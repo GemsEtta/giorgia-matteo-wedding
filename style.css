@@ -298,7 +298,6 @@ body{
 /* ==========================
    RESPONSIVE
 ========================== */
-
 @media(max-width:768px){
 
     #typing{
@@ -338,6 +337,51 @@ body{
         display:none;
     }
 
+    .invitation-section{
+
+        flex-direction:column;
+
+        padding:60px 20px;
+
+    }
+
+    .envelope{
+
+        width:90vw;
+
+        height:220px;
+
+    }
+
+    .polaroid{
+
+        position:relative;
+
+        transform:none;
+
+        margin-bottom:20px;
+
+    }
+
+    .polaroid img{
+
+        width:180px;
+
+    }
+
+    .invitation-card{
+
+        position:relative;
+
+        transform:none;
+
+        width:90vw;
+
+        max-width:320px;
+
+        height:auto;
+
+    }
 
 }
 
