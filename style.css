@@ -341,9 +341,7 @@ body{
 
     .invitation-section{
 
-        flex-direction:column;
-
-        padding:60px 20px;
+        overflow:visible;
 
     }
 
@@ -421,6 +419,12 @@ body{
     border-bottom:110px solid #f1e7d0;
 
 }
+
+    .envelope{
+
+        display:none;
+
+    }
 
 }
 
