@@ -1,0 +1,1258 @@
+/* =====================================
+   IMPOSTAZIONI GENERALI
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* =====================================
+   HOME
+===================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    background:#f6f2e8;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* =====================================
+   TESTO
+===================================== */
+
+#typing{
+
+    font-family:'Caveat', cursive;
+
+    font-size:90px;
+
+    color:#222;
+
+    text-align:center;
+
+    min-height:180px;
+
+    opacity:0;
+
+    animation:fadeInTitle 1s ease forwards;
+
+    animation-delay:0.5s;
+}
+
+@keyframes fadeInTitle{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+
+
+/* =====================================
+   FOTO POLAROID
+===================================== */
+
+.photo{
+
+    margin-top:40px;
+
+    opacity:0;
+
+    transform:translateY(50px) rotate(-4deg);
+
+    animation:showPhoto 1s forwards;
+
+    animation-delay:1.8s;
+}
+
+.photo img{
+
+    width:260px;
+
+    border:18px solid white;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+/* =====================================
+   DATA E LUOGO
+===================================== */
+
+.bottom-left{
+
+    position:absolute;
+
+    left:40px;
+    bottom:30px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    letter-spacing:3px;
+}
+
+.bottom-right{
+
+    position:absolute;
+
+    right:40px;
+    bottom:30px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    letter-spacing:3px;
+}
+
+/* =====================================
+   ANIMAZIONE FOTO
+===================================== */
+
+@keyframes showPhoto{
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        rotate(-4deg);
+    }
+}
+
+/* =====================================
+   MENU HAMBURGER
+===================================== */
+
+.menu-button{
+
+    position:fixed;
+
+    top:50px;
+    right:60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    z-index:2000;
+}
+
+/* linee */
+
+.menu-button span{
+
+    display:block;
+
+    width:42px;
+    height:3px;
+
+    border-radius:999px;
+
+    transition:all .3s ease;
+}
+
+/* MENU VERDE */
+
+.menu-button.dark span{
+
+    background:#5f6956;
+}
+
+/* MENU BIANCO */
+
+.menu-button.light span{
+
+    background:white;
+}
+
+/* hover */
+
+.menu-button:hover span{
+
+    background:#7b886f;
+}
+
+/* =====================================
+   MENU A COMPARSA
+===================================== */
+
+.menu-panel{
+
+    position:fixed;
+
+    top:0;
+    right:-320px;
+
+    width:320px;
+    height:100vh;
+
+    background:#f9f5ee;
+
+    box-shadow:
+    -10px 0 30px rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding-left:50px;
+
+    transition:all .4s ease;
+
+    z-index:1500;
+}
+
+.menu-panel.active{
+
+    right:0;
+}
+
+/* link */
+
+.menu-panel a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+
+    margin:18px 0;
+
+    transition:.3s ease;
+}
+
+/* hover */
+
+.menu-panel a:hover{
+
+    color:#7a9170;
+
+    padding-left:15px;
+}
+
+/* ==========================
+   PAGINE INTERNE
+========================== */
+
+.page{
+
+    min-height:100vh;
+
+    background:#f6f2e8;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+}
+
+.page h2{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:4rem;
+
+    color:#222;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    #typing{
+
+        font-size:55px;
+
+        padding:20px;
+    }
+
+    .photo img{
+
+        width:200px;
+    }
+
+    .menu-button{
+
+        right:25px;
+    }
+
+    .page h2{
+
+        font-size:2.5rem;
+    }
+}
+
+/* =====================================
+   INVITO
+===================================== */
+
+.invitation-section{
+
+    min-height:100vh;
+
+    background:#f6f2e8;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* BUSTA */
+
+.envelope{
+
+    position:absolute;
+
+    width:560px;
+
+    height:340px;
+
+    background:#e8ddc5;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.10);
+
+    z-index:1;
+}
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:280px solid transparent;
+    border-right:280px solid transparent;
+    border-top:170px solid #d2c4a8;
+
+    transform-origin:top center;
+
+    z-index:5;
+}
+
+.envelope::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:280px solid transparent;
+    border-right:280px solid transparent;
+    border-bottom:170px solid #f1e7d0;
+}
+
+/* POLAROID */
+
+.polaroid{
+
+    position:absolute;
+
+    z-index:3;
+
+    background:white;
+
+    padding:15px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+
+    transform:
+    translateX(-170px)
+    translateY(-110px)
+    rotate(-8deg);
+
+    opacity:0;
+
+}
+
+.polaroid img{
+
+    width:230px;
+
+    display:block;
+}
+
+/* INVITO */
+
+.invitation-card{
+
+    position:absolute;
+
+    z-index:4;
+
+    width:320px;
+
+    height:360px;
+
+    background:#f3ead7;
+
+    padding:40px;
+
+    text-align:center;
+
+    transform:
+    translateX(220px)
+    translateY(30px)
+    rotate(4deg);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+
+    opacity:0;
+
+}
+
+/* TESTI */
+
+.invitation-card p{
+
+    font-family:'Cormorant Garamond', serif;
+}
+
+.invitation-card h3{
+
+    font-family:'Caveat', cursive;
+
+    font-size:3.5rem;
+
+    color:#444;
+
+    margin:40px 0 20px 0;
+}
+
+.invitation-card span{
+
+    display:block;
+
+    margin-top:20px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    line-height:1.8;
+
+    color:#444;
+}
+
+/* ANIMAZIONI */
+
+@keyframes showEnvelope{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+/* NUOVA ANIMAZIONE LEMBO */
+
+@keyframes openFlap{
+
+    from{
+        transform:rotateX(0deg);
+    }
+
+    to{
+        transform:rotateX(180deg);
+    }
+
+}
+
+
+
+
+@keyframes showPolaroid{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateX(-170px)
+        translateY(-40px)
+        rotate(-15deg);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateX(-170px)
+        translateY(-110px)
+        rotate(-8deg);
+    }
+}
+
+@keyframes showCard{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateX(280px)
+        translateY(30px)
+        rotate(12deg);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateX(220px)
+        translateY(30px)
+        rotate(4deg);
+    }
+}   
+
+
+/*Animazioni*/
+
+.invitation-section.show .envelope{
+
+    animation:showEnvelope 1s forwards;
+}
+
+/*Animazione Lembo Busta superiore*/
+.invitation-section.show .envelope::before{
+
+    animation:openFlap 1s forwards;
+
+    animation-delay:.2s;
+
+}
+
+/*Animazione Immagine Polaroid*/
+.invitation-section.show .polaroid{
+
+    animation:showPolaroid 1s forwards;
+
+    animation-delay:1.4s;
+}
+
+/*Animazione Invito*/
+.invitation-section.show .invitation-card{
+
+    animation:showCard 1s forwards;
+
+    animation-delay:1.9s;
+}
+/* =====================================
+   IL PROGRAMMA
+===================================== */
+.timeline-section{
+
+    min-height:100vh;
+
+    background:#f6f2e8;
+
+    padding:100px 40px;
+
+    text-align:center;
+}
+
+.timeline-section h2{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:4rem;
+
+    font-weight:300;
+
+    margin-bottom:10px;
+}
+
+.timeline-subtitle{
+
+    color:#888;
+
+    margin-bottom:80px;
+
+    font-size:1.2rem;
+}
+
+.timeline{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:110px;
+
+    left:8%;
+
+    width:84%;
+
+    height:2px;
+
+    background:#bfa978;
+}
+
+.timeline-item{
+
+    width:180px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.timeline-icon{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    margin-bottom:25px;
+
+    opacity:.85;
+}
+
+.icon-church{
+
+    transform: scale(1.5);
+
+}
+
+.timeline-dot{
+
+    width:14px;
+
+    height:14px;
+
+    background:#5f6956;
+
+    border-radius:50%;
+
+    margin:0 auto 25px;
+}
+
+.timeline-time{
+
+    color:#5f6956;
+
+    font-size:1.4rem;
+
+    margin-bottom:12px;
+
+    font-family:'Cormorant Garamond', serif;
+}
+
+.timeline-item h3{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.8rem;
+
+    font-weight:400;
+}
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+.countdown-section{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #f6f2e8 0%,
+        #dde3d6 100%
+    );
+
+    color:#3f4739;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.countdown-section h2{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:3rem;
+
+    font-weight:300;
+
+    margin-bottom:20px;
+}
+
+.countdown-date{
+
+    margin-bottom:70px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    letter-spacing:3px;
+
+    color:#7a7f73;
+
+    font-size:1.1rem;
+}
+
+.countdown-container{
+
+    display:flex;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:flex-end;
+}
+
+.countdown-box{
+
+    text-align:center;
+
+    min-width:120px;
+}
+
+.countdown-box span{
+
+    display:block;
+
+    color:#5f6956;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:4rem;
+}
+
+#days{
+
+    font-size:8rem;
+
+    line-height:1;
+
+    color:#5f6956;
+}
+
+.countdown-box p{
+
+    margin-top:10px;
+
+    letter-spacing:5px;
+
+    font-size:0.9rem;
+
+    color:#a89663;
+}
+
+.countdown-message{
+
+    max-width:700px;
+
+    text-align:center;
+
+    margin-top:70px;
+
+    margin-bottom:35px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.3rem;
+
+    line-height:1.6;
+
+    color:#4d5546;
+}
+
+.countdown-button{
+
+    text-decoration:none;
+
+    background:#5f6956;
+
+    color:white;
+
+    padding:16px 40px;
+
+    border-radius:999px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    letter-spacing:2px;
+
+    display:inline-block;
+
+    transition:.3s ease;
+}
+
+.countdown-button:hover{
+
+    background:#74816d;
+
+    transform:translateY(-3px);
+}
+
+
+/* =====================================
+   RSVP
+===================================== */
+.rsvp-intro strong{
+
+    color:#5f6956;
+
+    font-weight:600;
+
+}
+
+.rsvp-intro{
+
+    margin-top:20px;
+
+    margin-bottom:40px;
+
+    max-width:700px;
+
+    text-align:center;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.3rem;
+
+    line-height:1.6;
+
+    color:#555;
+}
+
+/*nuovo*/
+.form-label{
+
+    width:100%;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.3rem;
+
+    color:#5f6956;
+
+    font-weight:500;
+
+    text-align:left;
+}   
+
+/*gestione form dopo selezione booleani di partecipazione*/
+.hidden {
+
+    display: none;
+
+}
+
+#guest-details{
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+
+/*altri dettagli form */
+
+#rsvp-form{
+
+    width:100%;
+
+    max-width:650px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+#rsvp-form input,
+#rsvp-form textarea{
+
+    width:100%;
+
+    padding:18px;
+
+    border:1px solid #d8d1c3;
+
+    border-radius:12px;
+
+    background:white;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.1rem;
+
+    outline:none;
+
+    transition:.3s ease;
+}
+
+#rsvp-form input:focus,
+#rsvp-form textarea:focus{
+
+    border-color:#5f6956;
+
+    box-shadow:
+    0 0 0 3px rgba(95,105,86,.15);
+}
+
+#rsvp-form textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+}
+
+.attendance{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    margin:10px 0;
+}
+
+.attendance label{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.2rem;
+
+    color:#444;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+#rsvp-form button{
+
+    background:#5f6956;
+
+    color:white;
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.1rem;
+
+    letter-spacing:2px;
+
+    transition:.3s ease;
+}
+
+#rsvp-form button:hover{
+
+    background:#74816d;
+
+    transform:translateY(-2px);
+}
+
+
+/* =====================================
+   RSVP FORM FOR ACCOMPAGNATORI
+===================================== */
+.add-guest-btn{
+
+       display:inline-block;
+
+      display:inline-block;
+
+    width:auto !important;
+
+    padding:5px 10px !important;
+
+    font-size:0.8rem !important;
+
+    letter-spacing:0.2px;
+
+    align-self:flex-start;
+
+    margin-top:6px;
+}
+
+.add-guest-btn:hover{
+
+    background:#5f6956;
+
+    color:white;
+}
+
+.remove-guest-btn{
+
+     display:inline-block;
+
+    width:auto !important;
+
+    padding:5px 10px !important;
+
+    font-size:0.8rem !important;
+
+    letter-spacing:0.2px;
+
+    align-self:flex-start;
+
+    margin-top:6px;
+}
+
+.remove-guest-btn:hover{
+
+    background:#b86b6b;
+
+    color:white;
+}
+
+/* =====================================
+   RSVP SUCCESS
+===================================== */
+
+.rsvp-success{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+    padding:60px;
+
+    background:white;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    text-align:center;
+}
+
+.success-icon{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+}
+
+.rsvp-success h2{
+
+    color:#5f6956;
+
+    margin-bottom:20px;
+}
+
+.rsvp-success p{
+
+    font-size:1.2rem;
+
+    line-height:1.7;
+
+    color:#444;
+}
+
+.rsvp-success span{
+
+    display:block;
+
+    margin-top:25px;
+
+    color:#888;
+
+    letter-spacing:2px;
+}
+
+
+
+
+/* =====================================
+   LISTA NOZZE
+===================================== */
+
+
+.gift-intro{
+
+    max-width:700px;
+
+    margin:30px auto 60px auto;
+
+    text-align:center;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.4rem;
+
+    line-height:1.7;
+
+    color:#555;
+}
+
+.gift-grid{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.gift-card{
+
+    width:280px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.06);
+
+    transition:.3s ease;
+}
+
+.gift-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.gift-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+}
+
+.gift-card h3{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+
+    color:#5f6956;
+
+    margin-bottom:15px;
+}
+
+.gift-card p{
+
+    line-height:1.6;
+
+    color:#555;
+}
