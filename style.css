@@ -375,13 +375,30 @@ body{
 
         transform:none;
 
-        width:90vw;
+        width:85vw;
 
-        max-width:320px;
+        max-width:300px;
 
+        padding:25px;
         height:auto;
 
     }
+
+    .envelope::before{
+
+    border-left:45vw solid transparent;
+    border-right:45vw solid transparent;
+    border-top:110px solid #d2c4a8;
+
+}
+
+.envelope::after{
+
+    border-left:45vw solid transparent;
+    border-right:45vw solid transparent;
+    border-bottom:110px solid #f1e7d0;
+
+}
 
 }
 
