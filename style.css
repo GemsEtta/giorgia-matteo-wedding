@@ -341,90 +341,63 @@ body{
 
     .invitation-section{
 
-        overflow:visible;
+    display:flex;
 
-    }
+    flex-direction:column;
 
-    .invitation-section.show .polaroid{
+    justify-content:center;
 
-        animation:none;
+    align-items:center;
 
-        opacity:1;
+    gap:20px;
 
-        transform:none;
+    padding:60px 20px;
 
-    }
-
-    .invitation-section.show .invitation-card{
-
-        animation:none;
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-    .envelope{
-
-        width:90vw;
-
-        height:220px;
-
-    }
-
-    .polaroid{
-
-        position:relative;
-
-        transform:none;
-
-        margin-bottom:20px;
-
-    }
-
-    .polaroid img{
-
-        width:180px;
-
-    }
-
-    .invitation-card{
-
-        position:relative;
-
-        transform:none;
-
-        width:85vw;
-
-        max-width:300px;
-
-        padding:25px;
-        height:auto;
-
-    }
-
-    .envelope::before{
-
-    border-left:45vw solid transparent;
-    border-right:45vw solid transparent;
-    border-top:110px solid #d2c4a8;
+    overflow:visible;
 
 }
 
-.envelope::after{
+.envelope{
 
-    border-left:45vw solid transparent;
-    border-right:45vw solid transparent;
-    border-bottom:110px solid #f1e7d0;
+    display:none;
 
 }
 
-    .envelope{
+.polaroid{
 
-        display:none;
+    position:static;
 
-    }
+    transform:none !important;
+
+    opacity:1 !important;
+
+    margin:0;
+
+}
+
+.polaroid img{
+
+    width:220px;
+
+}
+
+.invitation-card{
+
+    position:static;
+
+    transform:none !important;
+
+    opacity:1 !important;
+
+    width:90%;
+
+    max-width:320px;
+
+    height:auto;
+
+    padding:25px;
+
+}
 
 }
 
