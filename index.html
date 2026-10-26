@@ -4,423 +4,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#f6f2e8">
 
-    <title>Giorgia & Matteo</title>
+    <title>Giorgia &amp; Matteo</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div id="password-screen">
+    <!-- PASSWORD -->
+    <form id="password-screen">
 
-    <h1>Giorgia & Matteo</h1>
+        <h1>Giorgia &amp; Matteo</h1>
 
-    <p>
-        Inserisci la password ricevuta nell'invito
-    </p>
+        <p>Inserisci la password ricevuta nell'invito</p>
 
-    <input
-        type="password"
-        id="site-password"
-        placeholder="Password"
-    >
-
-    <button onclick="checkPassword()">
-        Entra
-    </button>
-
-</div>
-
-<div id="site-content" style="display:none;">
-
-    <!-- MENU -->
-    <div class="menu-button dark">
-
-        <span></span>
-        <span></span>
-
-    </div>
-
-    <!-- MENU LATERALE -->
-    <div class="menu-panel">
-
-        <a href="#home">Home</a>
-
-        <a href="#invito">Invito</a>
-
-        <a href="#Il Programma">Il Programma</a>
-
-        <a href="#countdown">Countdown</a>
-
-        <a href="#rsvp">RSVP</a>
-
-        <a href="#Idee Regalo">Idee Regalo</a>
-
-    </div>
-
-    <!-- HOME -->
-    <section id="home" class="hero">
-
-        <h1 id="typing"></h1>
-
-        <div class="photo">
-            <img src="images/FOTO_APERTURA_MATRIMONIO_1.jpg" alt="Foto coppia">
-        </div>
-
-        <div class="bottom-left">
-            12 SETTEMBRE 2027
-        </div>
-
-        <div class="bottom-right">
-            LATINA, ITALIA
-        </div>
-
-    </section>
-
-    <!-- INVITO -->
-    <section id="invito" class="invitation-section">
-
-    <div class="envelope"></div>
-
-    <div class="polaroid">
-
-        <img src="images/Designer_2.png" alt="Foto Giorgia e Matteo">
-
-    </div>
-
-    <div class="invitation-card">
-
-        <p class="invitation-date">
-        E Siamo felici di comunicarti che
-        </p>
-
-        <h3>Proprio Tu</h3>
-
-        <p class="invitation-text">
-            Sei invitato al 
-            loro matrimonio a Latina,
-            al grappolo d'uva
-            ─────────────────────
-             12 Settembre 2027,
-            Latina
-        </p>
-
-    </div>
-
-    </section>
-
-    <!-- IL PROGRAMMA -->
-     <section id="programma" class="timeline-section">
-
-    <h2>Il Programma</h2>
-
-    <p class="timeline-subtitle">
-        Una giornata da vivere insieme
-    </p>
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <img
-                src="images/Chiesa.png"
-                class="timeline-icon icon-church"
-                alt="Cerimonia"
-            >
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-time">11:00</div>
-
-            <h3>Cerimonia</h3>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <img
-                src="images/cocktail.png"
-                class="timeline-icon"
-                alt="Aperitivo"
-            >
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-time">13:00</div>
-
-            <h3>Aperitivo</h3>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <img
-                src="images/Cena2.png"
-                class="timeline-icon"
-                alt="Pranzo"
-            >
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-time">15:00</div>
-
-            <h3>Pranzo</h3>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <img
-                src="images/cake.png"
-                class="timeline-icon"
-                alt="Torta"
-            >
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-time">19:00</div>
-
-            <h3>Torta</h3>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <img
-                src="images/DiscoParty.png"
-                class="timeline-icon"
-                alt="Festa"
-            >
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-time">23:00</div>
-
-            <h3>Festa</h3>
-
-        </div>
-
-    </div>
-
-</section>
-
-    <!-- COUNTDOWN -->
-    <section id="countdown" class="countdown-section">
-
-    <h2>Ci siamo quasi</h2>
-
-    <div class="countdown-container">
-
-        <div class="countdown-box">
-
-            <span id="days">0</span>
-
-            <p>GIORNI</p>
-            
-        </div>
-            <div class="countdown-box">
-            <span id="hours">0</span>
-                <p>ORE</p>
-            </div>
-            <div class="countdown-box">
-                <span id="minutes">0</span>
-                <p>MINUTI</p>
-            </div>
-            <div class="countdown-box">
-                <span id="seconds">0</span>
-                <p>SECONDI</p>
-            </div>
-        </div>
-    
-        <p class="countdown-message">
-
-    Stiamo contando i giorni che ci separano dal nostro sì.
-    Aiutaci a organizzare tutto al meglio confermando la tua presenza entro il 30 giugno 2027.
-
-</p>
-
-<a href="#rsvp" class="countdown-button">
-
-    Conferma la tua presenza
-
-</a>
-    </section>
-
-    <!-- RSVP -->
-  <section id="rsvp" class="page">
-
-    <h2>RSVP</h2>
-
-    <p class="rsvp-intro">
-    <strong>Ti chiediamo</strong> 
-    gentilmente
-    <strong> di confermare la tua presenza</strong>
-    <strong> entro il 30 giugno 2027</strong>.
-</p>
-
-    <form id="rsvp-form">
-<input
-    id="nome"
-    type="text"
-    name="nome"
-    placeholder="Nome e Cognome"
-    required
->
-
-<input
-    id="email"
-    type="email"
-    name="email"
-    placeholder="Email"
-    required
->
-
-<div class="attendance">
-
-    <label>
-    <input
-        type="radio"
-        name="presenza"
-        value="solo"
-        required
-    >
-    Sarò presente da solo
-    </label>
-
-    <label>
         <input
-            type="radio"
-            name="presenza"
-            value="accompagnatori"
+            type="password"
+            id="site-password"
+            placeholder="Password"
+            autocomplete="off"
             required
+            autofocus
         >
-        Sarò presente con accompagnatori
-    </label>
 
-    <label>
-        <input
-            type="radio"
-            name="presenza"
-            value="assente"
-            required
-        >
-        Non potrò partecipare
-    </label>
-</div> <!-- attendance -->
+        <p id="password-error" role="alert"></p>
 
-<div id="guest-details" class="hidden">
-
-<p class="form-label">
-    Chi verrà con te?
-</p>
-
-<div id="partecipanti-list"></div>
-
-<button
-    type="button"
-    id="addGuest"
-    class="add-guest-btn">
-
-    + Aggiungi accompagnatore
-
-</button>
-
-<button
-    type="button"
-    id="removeGuest"
-    class="remove-guest-btn">
-
-    − Rimuovi ultimo accompagnatore
-
-</button>
-
-</div>
-
-<!--Comparsa allergie da selezione -->
-<div id="diet-details" class="hidden">
-
-    <p class="form-label">
-        Allergie, intolleranze o esigenze alimentari
-    </p>
-
-    <textarea
-        id="note"
-        name="note"
-        placeholder="Scrivi 'Nessuna' se non hai esigenze particolari"
-    ></textarea>
-
-</div>
-
-        <button type="submit">
-
-            Conferma
-
-        </button>
+        <button type="submit">Entra</button>
 
     </form>
 
-</section>
+    <div id="site-content" style="display:none;">
 
-    <!-- LISTA NOZZE -->
-    <section id="Idee Regalo" class="page">
+        <!-- MENU -->
+        <button type="button" class="menu-button dark" aria-label="Apri il menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
 
-    <h2>Idee Regalo</h2>
+        <!-- MENU LATERALE -->
+        <nav class="menu-panel">
+            <a href="#home">Home</a>
+            <a href="#invito">Invito</a>
+            <a href="#programma">Il Programma</a>
+            <a href="#countdown">Countdown</a>
+            <a href="#rsvp">RSVP</a>
+            <a href="#idee-regalo">Idee Regalo</a>
+        </nav>
 
-    <p class="gift-intro">
-        Il regalo più bello sarà condividere con voi
-        questo giorno speciale.
-        Se desiderate contribuire al nostro viaggio,
-        qui trovate alcune idee.
-    </p>
+        <!-- HOME -->
+        <section id="home" class="hero">
 
-    <div class="gift-grid">
+            <h1 id="typing"></h1>
 
-        <div class="gift-card">
+            <div class="photo">
+                <img src="images/FOTO_APERTURA_MATRIMONIO_1.jpg" alt="Foto coppia">
+            </div>
 
-            <div class="gift-icon">✈️</div>
+            <div class="bottom-left">12 SETTEMBRE 2027</div>
 
-            <h3>Viaggio di Nozze</h3>
+            <div class="bottom-right">LATINA, ITALIA</div>
 
-            <p>
-                Un aiuto per il nostro viaggio
-                tra Tokyo e Kyoto.
+        </section>
+
+        <!-- INVITO -->
+        <section id="invito" class="invitation-section">
+
+            <div class="envelope"></div>
+
+            <div class="polaroid">
+                <img src="images/Designer_2.png" alt="Foto Giorgia e Matteo" loading="lazy">
+            </div>
+
+            <div class="invitation-card">
+
+                <p class="invitation-date">
+                    E Siamo felici di comunicarti che
+                </p>
+
+                <h3>Proprio Tu</h3>
+
+                <p class="invitation-text">
+                    Sei invitato al
+                    loro matrimonio a Latina,
+                    al grappolo d'uva
+                    ─────────────────────
+                    12 Settembre 2027,
+                    Latina
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- IL PROGRAMMA -->
+        <section id="programma" class="timeline-section">
+
+            <h2>Il Programma</h2>
+
+            <p class="timeline-subtitle">Una giornata da vivere insieme</p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <img src="images/Chiesa.png" class="timeline-icon icon-church" alt="Cerimonia" loading="lazy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">11:00</div>
+                    <h3>Cerimonia</h3>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="images/cocktail.png" class="timeline-icon" alt="Aperitivo" loading="lazy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">13:00</div>
+                    <h3>Aperitivo</h3>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="images/Cena2.png" class="timeline-icon" alt="Pranzo" loading="lazy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">15:00</div>
+                    <h3>Pranzo</h3>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="images/cake.png" class="timeline-icon" alt="Torta" loading="lazy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">19:00</div>
+                    <h3>Torta</h3>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="images/DiscoParty.png" class="timeline-icon" alt="Festa" loading="lazy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">23:00</div>
+                    <h3>Festa</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- COUNTDOWN -->
+        <section id="countdown" class="countdown-section">
+
+            <h2>Ci siamo quasi</h2>
+
+            <div class="countdown-container">
+
+                <div class="countdown-box">
+                    <span id="days">0</span>
+                    <p>GIORNI</p>
+                </div>
+
+                <div class="countdown-box">
+                    <span id="hours">0</span>
+                    <p>ORE</p>
+                </div>
+
+                <div class="countdown-box">
+                    <span id="minutes">0</span>
+                    <p>MINUTI</p>
+                </div>
+
+                <div class="countdown-box">
+                    <span id="seconds">0</span>
+                    <p>SECONDI</p>
+                </div>
+
+            </div>
+
+            <p class="countdown-message">
+                Stiamo contando i giorni che ci separano dal nostro sì.
+                Aiutaci a organizzare tutto al meglio confermando la tua presenza entro il 30 giugno 2027.
             </p>
 
-        </div>
+            <a href="#rsvp" class="countdown-button">Conferma la tua presenza</a>
 
-        <div class="gift-card">
+        </section>
 
-            <div class="gift-icon">🍷</div>
+        <!-- RSVP -->
+        <section id="rsvp" class="page">
 
-            <h3>Cena Romantica</h3>
+            <h2>RSVP</h2>
 
-            <p>
-                Una serata speciale
-                durante il nostro viaggio.
+            <p class="rsvp-intro">
+                <strong>Ti chiediamo</strong>
+                gentilmente
+                <strong>di confermare la tua presenza</strong>
+                <strong>entro il 30 giugno 2027</strong>.
             </p>
 
-        </div>
+            <form id="rsvp-form">
 
-        <div class="gift-card">
+                <input id="nome" type="text" name="nome" placeholder="Nome e Cognome" autocomplete="name" required>
 
-            <div class="gift-icon">📸</div>
+                <input id="email" type="email" name="email" placeholder="Email" autocomplete="email" required>
 
-            <h3>Ricordi</h3>
+                <div class="attendance">
 
-            <p>
-                Per aiutarci a creare
-                ricordi indimenticabili.
+                    <label>
+                        <input type="radio" name="presenza" value="solo" required>
+                        Sarò presente da solo
+                    </label>
+
+                    <label>
+                        <input type="radio" name="presenza" value="accompagnatori" required>
+                        Sarò presente con accompagnatori
+                    </label>
+
+                    <label>
+                        <input type="radio" name="presenza" value="assente" required>
+                        Non potrò partecipare
+                    </label>
+
+                </div>
+
+                <div id="guest-details" class="hidden">
+
+                    <p class="form-label">Chi verrà con te?</p>
+
+                    <div id="partecipanti-list"></div>
+
+                    <button type="button" id="addGuest" class="add-guest-btn">
+                        + Aggiungi accompagnatore
+                    </button>
+
+                    <button type="button" id="removeGuest" class="remove-guest-btn">
+                        − Rimuovi ultimo accompagnatore
+                    </button>
+
+                </div>
+
+                <!-- Allergie: compare dopo la scelta della presenza -->
+                <div id="diet-details" class="hidden">
+
+                    <p class="form-label">Allergie, intolleranze o esigenze alimentari</p>
+
+                    <textarea
+                        id="note"
+                        name="note"
+                        placeholder="Scrivi 'Nessuna' se non hai esigenze particolari"
+                    ></textarea>
+
+                </div>
+
+                <button type="submit">Conferma</button>
+
+            </form>
+
+        </section>
+
+        <!-- LISTA NOZZE -->
+        <section id="idee-regalo" class="page">
+
+            <h2>Idee Regalo</h2>
+
+            <p class="gift-intro">
+                Il regalo più bello sarà condividere con voi
+                questo giorno speciale.
+                Se desiderate contribuire al nostro viaggio,
+                qui trovate alcune idee.
             </p>
 
-        </div>
+            <div class="gift-grid">
+
+                <div class="gift-card">
+                    <div class="gift-icon">✈️</div>
+                    <h3>Viaggio di Nozze</h3>
+                    <p>Un aiuto per il nostro viaggio tra Tokyo e Kyoto.</p>
+                </div>
+
+                <div class="gift-card">
+                    <div class="gift-icon">🍷</div>
+                    <h3>Cena Romantica</h3>
+                    <p>Una serata speciale durante il nostro viaggio.</p>
+                </div>
+
+                <div class="gift-card">
+                    <div class="gift-icon">📸</div>
+                    <h3>Ricordi</h3>
+                    <p>Per aiutarci a creare ricordi indimenticabili.</p>
+                </div>
+
+            </div>
+
+        </section>
 
     </div>
 
-</section>
-    </div>
     <script src="script.js"></script>
 
 </body>

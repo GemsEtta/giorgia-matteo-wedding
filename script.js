@@ -1,239 +1,197 @@
 /* ==========================
-   GM
+   PASSWORD
 ========================== */
+const passwordScreen = document.getElementById("password-screen");
+const siteContent = document.getElementById("site-content");
+const passwordError = document.getElementById("password-error");
+
 function checkPassword(){
+    const password = document.getElementById("site-password").value.trim();
 
-    const password =
-        document.getElementById("site-password").value;
-
-    if(password === "GM"){
-
-        document.getElementById("password-screen")
-            .style.display = "none";
-
-        document.getElementById("site-content")
-            .style.display = "block";
-
+    if(password.toUpperCase() === "GM"){
+        passwordScreen.style.display = "none";
+        siteContent.style.display = "block";
+        window.scrollTo(0, 0);
+        updateMenuColor();
     }else{
-
-        alert("Password non corretta");
-
+        passwordError.textContent = "Password non corretta. Riprova.";
     }
-
 }
+
+passwordScreen.addEventListener("submit", (e) => {
+    e.preventDefault();
+    checkPassword();
+});
 
 /* ==========================
    SCRITTA
 ========================== */
-document.getElementById("typing").innerHTML =
-"Giorgia & Matteo<br>si sposano";
+document.getElementById("typing").innerHTML = "Giorgia & Matteo<br>si sposano";
 
 /* ==========================
    MENU LATERALE
 ========================== */
-const menuButton =
-document.querySelector(".menu-button");
+const menuButton = document.querySelector(".menu-button");
+const menuPanel = document.querySelector(".menu-panel");
+const countdownSection = document.getElementById("countdown");
 
-const menuPanel =
-document.querySelector(".menu-panel");
+function setMenu(aperto){
+    menuPanel.classList.toggle("active", aperto);
+    menuButton.classList.toggle("open", aperto);
+    menuButton.setAttribute("aria-expanded", aperto);
+}
 
 menuButton.addEventListener("click", () => {
-
-    menuPanel.classList.toggle("active");
-
+    setMenu(!menuPanel.classList.contains("active"));
 });
 
-/* CAMBIO COLORE MENU */
-
-window.addEventListener("scroll", () => {
-
-    const countdown =
-    document.getElementById("countdown");
-
-    const countdownTop =
-    countdown.offsetTop;
-
-    if(window.scrollY >= countdownTop - 100){
-
-        menuButton.classList.remove("dark");
-
-        menuButton.classList.add("light");
-
-    }else{
-
-        menuButton.classList.remove("light");
-
-        menuButton.classList.add("dark");
-
-    }
-
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") setMenu(false);
 });
 
-
-const menuLinks =
-document.querySelectorAll(".menu-panel a");
-
-menuLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        menuPanel.classList.remove("active");
-
-    });
-
+document.querySelectorAll(".menu-panel a").forEach(link => {
+    link.addEventListener("click", () => setMenu(false));
 });
+
+/* Menu bianco SOLO mentre si e' nella sezione countdown */
+function updateMenuColor(){
+    const inizio = countdownSection.offsetTop - 100;
+    const fine = countdownSection.offsetTop + countdownSection.offsetHeight - 100;
+    const chiaro = window.scrollY >= inizio && window.scrollY < fine;
+
+    menuButton.classList.toggle("light", chiaro);
+    menuButton.classList.toggle("dark", !chiaro);
+}
+
+window.addEventListener("scroll", updateMenuColor, { passive: true });
 
 /* ==========================
-   ANIMAZIONE INVITI
+   ANIMAZIONE INVITO
 ========================== */
-const invitationSection =
-document.querySelector(".invitation-section");
+const invitationSection = document.querySelector(".invitation-section");
 
-const observer =
-new IntersectionObserver((entries)=>{
-
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            invitationSection.classList.add("show");
-
-        }else{
-
-            invitationSection.classList.remove("show");
-
-        }
-
+        invitationSection.classList.toggle("show", entry.isIntersecting);
     });
-
-},{
-    threshold:0.4
-});
+}, { threshold: 0.4 });
 
 observer.observe(invitationSection);
 
 /* ==========================
    COUNTDOWN
 ========================== */
-const weddingDate =
-new Date("2027-09-12T15:00:00").getTime();
+/* Punta alla cerimonia (11:00). Per l'orario del pranzo usa T15:00:00 */
+const weddingDate = new Date("2027-09-12T11:00:00").getTime();
 
 function updateCountdown(){
+    const distance = Math.max(weddingDate - Date.now(), 0);
 
-    const now = new Date().getTime();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const distance =
-    weddingDate - now;
-
-    const days =
-    Math.floor(
-    distance / (1000 * 60 * 60 * 24)
-    );
-
-    const hours =
-    Math.floor(
-    (distance %
-    (1000 * 60 * 60 * 24))
-    /
-    (1000 * 60 * 60)
-    );
-
-    const minutes =
-    Math.floor(
-    (distance %
-    (1000 * 60 * 60))
-    /
-    (1000 * 60)
-    );
-
-    const seconds =
-    Math.floor(
-    (distance %
-    (1000 * 60))
-    /
-    1000
-    );
-
-    document.getElementById("days").innerText =
-    days;
-
-    document.getElementById("hours").innerText =
-    hours;
-
-    document.getElementById("minutes").innerText =
-    minutes;
-
-    document.getElementById("seconds").innerText =
-    seconds;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
 }
 
 updateCountdown();
+setInterval(updateCountdown, 1000);
 
-setInterval(updateCountdown,1000);
+/* ==========================
+   RSVP DINAMICA
+========================== */
+const guestDetails = document.getElementById("guest-details");
+const partecipantiList = document.getElementById("partecipanti-list");
+const dietDetails = document.getElementById("diet-details");
+const note = document.getElementById("note");
 
+function creaCampoAccompagnatore(){
+    const numero = document.querySelectorAll(".guest-name").length + 1;
 
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "guest-name";
+    input.placeholder = "Nome e Cognome accompagnatore " + numero;
+    input.required = true;
 
-//*SITO E FORM*//
-const form = document.getElementById("rsvp-form");
+    partecipantiList.appendChild(input);
+}
 
-form.addEventListener("submit", async (e) => {
+document.getElementById("addGuest").addEventListener("click", creaCampoAccompagnatore);
 
-    e.preventDefault();
+document.getElementById("removeGuest").addEventListener("click", () => {
+    const ospiti = document.querySelectorAll(".guest-name");
 
-    const presenza =
-        document.querySelector(
-            'input[name="presenza"]:checked'
-        )?.value || "";
-    
-        console.log(document.getElementById("nome"));
-console.log(document.getElementById("email"));
-console.log(document.getElementById("note"));
-
-    const ospiti = [];
-
-document
-.querySelectorAll(".guest-name")
-.forEach(campo => {
-
-    if(campo.value.trim() !== "")
-    {
-        ospiti.push(campo.value.trim());
+    if(ospiti.length > 1){
+        ospiti[ospiti.length - 1].remove();
     }
-
 });
 
+function aggiornaForm(valore){
+    const conAccompagnatori = valore === "accompagnatori";
+    const presente = valore !== "assente";
+
+    guestDetails.classList.toggle("hidden", !conAccompagnatori);
+    dietDetails.classList.toggle("hidden", !presente);
+    note.required = presente;
+
+    if(conAccompagnatori){
+        if(partecipantiList.children.length === 0){
+            creaCampoAccompagnatore();
+        }
+    }else{
+        partecipantiList.innerHTML = "";
+    }
+
+    if(!presente){
+        note.value = "";
+    }
+}
+
+document.querySelectorAll('input[name="presenza"]').forEach(radio => {
+    radio.addEventListener("change", () => {
+        if(radio.checked) aggiornaForm(radio.value);
+    });
+});
+
+/* ==========================
+   INVIO RSVP
+========================== */
+const rsvpForm = document.getElementById("rsvp-form");
+
+rsvpForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const bottone = rsvpForm.querySelector('button[type="submit"]');
+    bottone.disabled = true;   /* evita doppi invii */
+
+    const presenza =
+        document.querySelector('input[name="presenza"]:checked')?.value || "";
+
+    const ospiti = [];
+    document.querySelectorAll(".guest-name").forEach(campo => {
+        if(campo.value.trim() !== ""){
+            ospiti.push(campo.value.trim());
+        }
+    });
+
     const dati = {
-
-        nome:
-            document.getElementById("nome").value,
-
-
-        nomiPartecipanti:
-    ospiti.join(" | "),
-
-        email:
-            document.getElementById("email").value,
-
-         presenza:
-        presenza,
-
+        nome: document.getElementById("nome").value,
+        nomiPartecipanti: ospiti.join(" | "),
+        email: document.getElementById("email").value,
+        presenza: presenza,
         partecipanti:
-
-        presenza === "solo"
-        ? 1
-
-        : presenza === "assente"
-        ? 0
-
-        : document.querySelectorAll(".guest-name").length + 1,
-
-        note:
-        document.getElementById("note")?.value || ""
-
+            presenza === "solo" ? 1
+            : presenza === "assente" ? 0
+            : document.querySelectorAll(".guest-name").length + 1,
+        note: note.value || ""
     };
 
     try {
-
         await fetch(
             "https://script.google.com/macros/s/AKfycbzxjvZqiwv1c6fvGO62p_ZfVLtJq8jAGNhYPctFdQhTVROmruUqdIeI3NcwfC_EGkrcPw/exec",
             {
@@ -243,160 +201,18 @@ document
             }
         );
 
-       document.getElementById("rsvp").innerHTML = `
-
+        document.getElementById("rsvp").innerHTML = `
 <div class="rsvp-success">
-
-    <div class="success-icon"></div>
-
+    <div class="success-icon">💌</div>
     <h2>Grazie!</h2>
-
-    <p>
-        Abbiamo ricevuto la tua conferma.
-    </p>
-
-    <p>
-        Siamo felici di poter condividere con te
-        questo giorno speciale.
-    </p>
-
-    <p>
-        Ci vediamo il 12 Settembre 2027.
-    </p>
-
-    <span>
-        Giorgia & Matteo
-    </span>
-
-</div>
-
-`;
-    } catch (err) {
-
-        alert("Si è verificato un errore.");
-
+    <p>Abbiamo ricevuto la tua conferma.</p>
+    <p>Siamo felici di poter condividere con te questo giorno speciale.</p>
+    <p>Ci vediamo il 12 Settembre 2027.</p>
+    <span>Giorgia &amp; Matteo</span>
+</div>`;
+    }catch(err){
+        bottone.disabled = false;
+        alert("Si è verificato un errore. Riprova tra qualche istante.");
         console.error(err);
-
     }
-
-});
-
-/* ==========================
-   RSVP DINAMICA
-========================== */
-
-const guestDetails =
-document.getElementById("guest-details");
-
-const partecipantiList =
-document.getElementById("partecipanti-list");
-
-const addGuest =
-document.getElementById("addGuest");
-
-const removeGuest =
-document.getElementById("removeGuest");
-
-function creaCampoAccompagnatore(){
-
-    const numero =
-        document.querySelectorAll(".guest-name").length + 1;
-
-    const input =
-        document.createElement("input");
-
-    input.type = "text";
-
-    input.className = "guest-name";
-
-    input.placeholder =
-    "Nome e Cognome accompagnatore " + numero;
-
-    input.required = true;
-
-    partecipantiList.appendChild(input);
-
-}
-
-addGuest.addEventListener("click", () => {
-
-    creaCampoAccompagnatore();
-
-});
-
-removeGuest.addEventListener("click", () => {
-
-    const ospiti =
-        document.querySelectorAll(".guest-name");
-
-    if(ospiti.length > 1){
-
-        ospiti[ospiti.length - 1].remove();
-
-    }
-
-});
-
-const dietDetails =
-document.getElementById("diet-details");
-
-const note =
-document.getElementById("note");
-
-document
-.querySelectorAll('input[name="presenza"]')
-.forEach(radio => {
-
-    radio.addEventListener("change", () => {
-
- if (
-    radio.checked &&
-    radio.value === "accompagnatori"
-) {
-    if(
-    partecipantiList.children.length === 0
-){
-
-    creaCampoAccompagnatore();
-
-}
-
-    guestDetails.style.display = "block";
-    dietDetails.style.display = "block";
-    note.required = true;
-
-}
-
-else if (
-    radio.checked &&
-    radio.value === "solo"
-) {
-
-    guestDetails.style.display = "none";
-    dietDetails.style.display = "block";
-
-    partecipantiList.innerHTML = "";
-
-    note.required = true;
-
-}
-
-else if (
-    radio.checked &&
-    radio.value === "assente"
-) {
-
-    guestDetails.style.display = "none";
-    dietDetails.style.display = "none";
-
-    partecipantiList.innerHTML = "";
-    guestDetails.querySelectorAll(".guest-name")
-    .forEach(campo => campo.value = "");
-    note.value = "";
-    note.required = false;
-
-}
-
-    });
-
 });
