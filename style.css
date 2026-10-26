@@ -294,18 +294,51 @@ img{max-width:100%;height:auto;display:block}
    RESPONSIVE  (sempre in fondo: vince chi sta dopo)
 ===================================================== */
 
-/* Tablet, telefoni in orizzontale: invito senza busta, bottom-left/right in colonna */
+/* Tablet, telefoni: busta ridimensionata + invito in colonna */
 @media (max-width:900px),(max-height:650px){
+
     .invitation-section{
-        flex-direction:column;gap:20px;padding:60px 20px;overflow:visible;
+        flex-direction:column;justify-content:center;align-items:center;
+        padding:110px 20px 70px;   /* spazio in alto per il lembo che si apre */
+        overflow:visible;
     }
-    .envelope{display:none}
-    .polaroid{position:static;transform:none!important;opacity:1!important;margin:0}
-    .polaroid img{width:220px}
+
+    /* Busta: stessa grafica, ma in proporzione alla larghezza dello schermo */
+    .envelope{
+        position:relative;
+        width:min(320px,86vw);height:auto;aspect-ratio:560/340;
+    }
+    .envelope::before,
+    .envelope::after{border:0;left:0;width:100%;height:50%}
+    .envelope::before{top:0;background:#d2c4a8;clip-path:polygon(0 0,100% 0,50% 100%)}
+    .envelope::after{bottom:0;background:#f1e7d0;clip-path:polygon(0 100%,100% 100%,50% 0)}
+
+    /* Polaroid: esce dalla busta, sovrapposta al bordo inferiore */
+    .polaroid{
+        position:relative;margin-top:-70px;padding:12px;
+        transform:rotate(-5deg);opacity:0;
+    }
+    .polaroid img{width:min(210px,56vw)}
+
+    /* Biglietto: compare sotto la polaroid */
     .invitation-card{
-        position:static;transform:none!important;opacity:1!important;
-        width:90%;max-width:320px;height:auto;padding:25px;
+        position:relative;width:min(320px,90%);height:auto;
+        margin-top:20px;padding:30px 25px;
+        transform:rotate(2deg);opacity:0;
     }
+
+    @keyframes showPolaroidM{
+        from{opacity:0;transform:translateY(-60px) rotate(-12deg)}
+        to{opacity:1;transform:rotate(-5deg)}
+    }
+    @keyframes showCardM{
+        from{opacity:0;transform:translateY(-60px) rotate(8deg)}
+        to{opacity:1;transform:rotate(2deg)}
+    }
+    /* Durata e ritardi restano quelli del desktop: cambia solo il movimento */
+    .invitation-section.show .polaroid{animation-name:showPolaroidM}
+    .invitation-section.show .invitation-card{animation-name:showCardM}
+
     .bottom-left,.bottom-right{position:static;margin-top:15px;text-align:center;width:100%}
 }
 

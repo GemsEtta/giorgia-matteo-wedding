@@ -74,7 +74,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         invitationSection.classList.toggle("show", entry.isIntersecting);
     });
-}, { threshold: 0.4 });
+}, { threshold: window.innerWidth <= 900 ? 0.15 : 0.4 });
 
 observer.observe(invitationSection);
 
