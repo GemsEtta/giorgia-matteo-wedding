@@ -74,7 +74,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         invitationSection.classList.toggle("show", entry.isIntersecting);
     });
-}, { threshold: window.innerWidth <= 900 ? 0.15 : 0.4 });
+}, { rootMargin: "-40% 0px -40% 0px", threshold: 0 });   /* parte quando l'invito arriva a meta' schermo */
 
 observer.observe(invitationSection);
 
