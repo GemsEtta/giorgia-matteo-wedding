@@ -114,14 +114,14 @@ button,input,textarea{font-family:inherit}
         linear-gradient(180deg,#f3ead5,#e9dcbf);
     clip-path:polygon(0 0,50% 50%,100% 0,100% 100%,0 100%);
 }
-/* Lembo superiore sfumato poco poco più intenso, fluido ed elegante */
+/* lembo superiore con sigillo di ceralacca */
 .envelope::before{
-    top:0; height:54%; transform-origin:top center; z-index:5;
-    backface-visibility: visible; -webkit-backface-visibility: visible;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    /* Transizione morbida dal crema dorato al sabbia caldo */
-    background: linear-gradient(180deg, #ebdcb9 0%, #d8c7a1 60%, #c4b188 100%);
-    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+    top:0;height:54%;transform-origin:top center;z-index:5;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    background:
+        radial-gradient(circle at 38% 34%,rgba(255,255,255,.38),transparent 38%) 50% 62%/calc(64*var(--u)) calc(64*var(--u)) no-repeat,
+        radial-gradient(circle,#76846b 0,#667260 52%,#4a5342 60%,rgba(30,40,25,.25) 63%,transparent 66%) 50% 62%/calc(64*var(--u)) calc(64*var(--u)) no-repeat,
+        linear-gradient(180deg,#eadfc4 0%,#d9cbab 65%,#c9b996 100%);
 }
 
 .polaroid{
@@ -148,13 +148,9 @@ button,input,textarea{font-family:inherit}
 
 @keyframes showEnvelope{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes openFlap{
-    0%{ 
-        transform: rotateX(0); 
-    }
-    100%{ 
-        /* Usiamo 179.9deg invece di 180deg per evitare che il browser "spegne" il lato posteriore */
-        transform: rotateX(179.9deg); 
-    }
+    0%{transform:rotateX(0);background-size:calc(64*var(--u)) calc(64*var(--u)),calc(64*var(--u)) calc(64*var(--u)),auto}
+    35%{background-size:0 0,0 0,auto}
+    100%{transform:rotateX(180deg);background-size:0 0,0 0,auto}
 }
 @keyframes showPolaroid{
     from{opacity:0;transform:translate(calc(-170*var(--u)),calc(-40*var(--u))) rotate(-15deg)}
