@@ -216,3 +216,31 @@ rsvpForm.addEventListener("submit", async (e) => {
         console.error(err);
     }
 });
+
+
+/* ==========================
+  LISTA NOZZE
+========================== */
+function selectGift(category, iban, causale) {
+    // Rimuove classe active da tutte le card
+    document.querySelectorAll('.gift-card').forEach(card => card.classList.remove('active'));
+    
+    // Evidenzia la card cliccata
+    event.currentTarget.classList.add('active');
+    
+    // Mostra il box IBAN
+    const displayBox = document.getElementById('iban-display');
+    displayBox.classList.remove('hidden');
+    
+    // Aggiorna i testi
+    document.getElementById('cat-title').innerText = "Regalo Selezionato: " + category.toUpperCase();
+    document.getElementById('iban-code').innerText = iban;
+    document.getElementById('causale-text').innerText = causale;
+}
+
+function copyIbanToClipboard() {
+    const iban = document.getElementById('iban-code').innerText;
+    navigator.clipboard.writeText(iban).then(() => {
+        alert("IBAN copiato negli appunti!");
+    });
+}

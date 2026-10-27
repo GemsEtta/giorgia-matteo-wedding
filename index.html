@@ -265,37 +265,58 @@
         </section>
 
         <!-- LISTA NOZZE -->
+        <!-- LISTA NOZZE -->
         <section id="idee-regalo" class="page">
 
-            <h2>Idee Regalo</h2>
+            <div class="gifts-container">
+                <h2 class="gifts-title">Idee Regalo</h2>
+                <p class="gifts-subtitle">
+                    Il regalo più bello sarà condividere con voi questo giorno speciale. 
+                    Se desiderate contribuire, qui trovate alcune idee:
+                </p>
+                
+                <!-- Griglia a 4 card -->
+                <div class="gifts-grid">
+                    
+                    <!-- 1. Viaggio -->
+                    <div class="gift-card" onclick="selectGift('viaggio', 'IT70V0306964634100000005545', 'Contributo Viaggio di Nozze')">
+                        <div class="gift-icon">✈️</div>
+                        <h4>Luna di Miele</h4>
+                        <p>Un volo verso la nostra prima avventura</p>
+                    </div>
 
-            <p class="gift-intro">
-                Il regalo più bello sarà condividere con voi
-                questo giorno speciale.
-                Se desiderate contribuire al nostro viaggio,
-                qui trovate alcune idee.
-            </p>
+                    <!-- 2. Casa -->
+                    <div class="gift-card" onclick="selectGift('casa', 'IT70V0306964634100000005545', 'Contributo Nuova Casa')">
+                        <div class="gift-icon">🏡</div>
+                        <h4>La Nostra Casa</h4>
+                        <p>Un mattoncino per arredare il nostro nido</p>
+                    </div>
 
-            <div class="gift-grid">
+                    <!-- 3. Esperienze -->
+                    <div class="gift-card" onclick="selectGift('esperienze', 'IT70V0306964634100000005545', 'Contributo Cena / Relax')">
+                        <div class="gift-icon">🥂</div>
+                        <h4>Cena & Relax</h4>
+                        <p>Un brindisi o un momento speciale</p>
+                    </div>
 
-                <div class="gift-card">
-                    <div class="gift-icon">✈️</div>
-                    <h3>Viaggio di Nozze</h3>
-                    <p>Un aiuto per il nostro viaggio tra Tokyo e Kyoto.</p>
+                    <!-- 4. Quota Libera -->
+                    <div class="gift-card" onclick="selectGift('libera', 'IT70V0306964634100000005545', 'Regalo di Nozze')">
+                        <div class="gift-icon">✨</div>
+                        <h4>Quota Libera</h4>
+                        <p>Un pensiero libero a vostra discrezione</p>
+                    </div>
+
                 </div>
 
-                <div class="gift-card">
-                    <div class="gift-icon">🍷</div>
-                    <h3>Cena Romantica</h3>
-                    <p>Una serata speciale durante il nostro viaggio.</p>
+                <!-- Box IBAN Dinamico -->
+                <div id="iban-display" class="iban-display-box hidden">
+                    <span class="selected-category-title" id="cat-title">Contributo Selezionato</span>
+                    <div class="iban-row">
+                        <span id="iban-code" class="iban-text">IT70 V030 6964 6341 0000 0005 545</span>
+                        <button class="copy-btn" onclick="copyIbanToClipboard()">Copia IBAN</button>
+                    </div>
+                    <p class="causale-hint">Causale consigliata: <i id="causale-text">Regalo di Nozze</i></p>
                 </div>
-
-                <div class="gift-card">
-                    <div class="gift-icon">📸</div>
-                    <h3>Ricordi</h3>
-                    <p>Per aiutarci a creare ricordi indimenticabili.</p>
-                </div>
-
             </div>
 
         </section>

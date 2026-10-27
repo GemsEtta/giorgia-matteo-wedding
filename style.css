@@ -237,12 +237,145 @@ button,input,textarea{font-family:inherit}
 /* =====================================
    LISTA NOZZE
 ===================================== */
-.gift-intro{max-width:700px;margin:30px auto 60px;text-align:center;font-size:1.4rem;line-height:1.7;color:#555}
-.gift-grid{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
-.gift-card{width:min(280px,100%);background:#fff;padding:40px;border-radius:20px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.06);transition:transform .3s ease}
-.gift-icon{font-size:3rem;margin-bottom:20px}
-.gift-card h3{font-size:2rem;color:#5f6956;margin-bottom:15px}
-.gift-card p{line-height:1.6;color:#555}
+/* Contenitore principale centrato e con larghezza controllata */
+.gifts-container {
+    width: 100%;
+    max-width: 650px; /* Impedisce che si allarghi a dismisura sullo schermo */
+    margin: 0 auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #4a453b;
+}
+
+.gifts-title {
+    font-size: 32px;
+    color: #586350;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.gifts-subtitle {
+    font-size: 16px;
+    color: #7a7263;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Griglia bilanciata: 2 colonne che non si deformano */
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+/* Card proporzionate e con altezza naturale */
+.gift-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(180, 165, 135, 0.4);
+    border-radius: 12px;
+    padding: 24px 16px; /* Spazio verticale generoso per evitare l'effetto schiacciato */
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.gift-card:hover, .gift-card.active {
+    background: #f4eee1;
+    border-color: #586350;
+    transform: translateY(-2px);
+}
+
+/* Icone proporzionate */
+.gift-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.gift-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    color: #3d3930;
+    font-weight: 600;
+}
+
+.gift-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #82796a;
+    line-height: 1.4;
+}
+
+/* Box IBAN ordinato e non sovrapposto */
+.iban-display-box {
+    background: #ede6d5;
+    border: 1px dashed #a29375;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease;
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+.selected-category-title {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #586350;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.iban-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.iban-text {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2822;
+}
+
+.copy-btn {
+    background: #586350;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: #464f3e;
+}
+
+.causale-hint {
+    margin: 0;
+    font-size: 13px;
+    color: #6b6355;
+}
 
 /* =====================================
    HOVER (solo con mouse) E MOVIMENTO RIDOTTO
